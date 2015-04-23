@@ -1,15 +1,14 @@
-
-//#ifndef TIME_H
-//#define TIME_H
+#ifndef TIME_H
+#define TIME_H
 #include <iostream>
 #include <fstream>
 using namespace std;
 class Time
 {
-
+ 
     private:
     int * seconds_pointer;
-
+ 
     public:
     Time();
     Time(int);
@@ -33,7 +32,7 @@ class Time
         *seconds_pointer = *(right.seconds_pointer);
     }
     ~Time();
-    friend ostream &operator << (ostream &, const Time &);
+   friend ostream &operator << (ostream &, const Time &);
    /* Time operator ++ (int)
     {
         Time temp;
@@ -48,24 +47,24 @@ class Time
     {
         double seconds_in_min = 60;
        return (*seconds_pointer + *(right.seconds_pointer))/ seconds_in_min;
-
+ 
     }
-
+ 
     Time (const Time & obj)
     {
-        *seconds_pointer  = *(obj.seconds_pointer);
+        seconds_pointer  = obj.seconds_pointer;
         *this = obj;
     }
 };
-
+/*
 ostream &operator << ( ostream stream, const Time & obj)
 {
     stream << *(obj.seconds_pointer);
     return stream;
-
+ 
 }
-
-
+ 
+ */
 double Time:: getDays () const
 {
     double seconds_in_min=60;
@@ -81,22 +80,22 @@ double Time::getMinutes()const
 int Time::getSeconds()const
 {
     return *seconds_pointer;
-
+ 
 }
 double Time::getHours()const
 {
     double seconds_in_min = 60;
     double min_in_hour = 60;
-
+ 
     return (*seconds_pointer / seconds_in_min)/min_in_hour;
 }
-
+ 
 Time::Time()
 {
     seconds_pointer = new int;
     *seconds_pointer  = 0;
 }
-
+ 
 Time::Time(int seconds)
 {
     seconds_pointer = new int;
@@ -106,7 +105,6 @@ Time::~Time()
 {
     delete seconds_pointer;
 }
-
-
-
-//#endif
+ 
+ 
+ #endif
