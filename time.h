@@ -1,3 +1,9 @@
+
+//#ifndef TIME_H
+//#define TIME_H
+#include <iostream>
+#include <fstream>
+using namespace std;
 class Time
 {
 
@@ -100,3 +106,7 @@ Time::~Time()
 {
     delete seconds_pointer;
 }
+
+
+
+//#endif
